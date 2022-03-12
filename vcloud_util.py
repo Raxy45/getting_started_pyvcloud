@@ -41,7 +41,7 @@ class VCD_Utils():
             vapp = VApp(self.client, resource=vapp_resource)
             return vapp
         except Exception as exc:
-            print("Error encountered in get_vapp(), Error: {exc}")
+            print(f"Error encountered in get_vapp(), Error: {exc}")
             return False
 
     def get_vm(self, vapp_name):
@@ -97,8 +97,8 @@ class VCD_Utils():
                 return vapp.get_primary_ip(vm_name)
             else:
                 return None
-        except Exception as exc:
-            print(f"Error encountered in get_vapp_ip_address(), Error:{exc}")
+        except Exception as err:
+            print(f"Error encountered in get_vapp_ip_address(), Error: {err}")
             return None
 
     # U: Update
@@ -132,8 +132,8 @@ class VCD_Utils():
         except MultipleRecordsException:
             print(f"More than one vApp with the name {vapp_name} exist")
             return False
-        except Exception as exc:
-            print("Error encountered in delete_vapp() method" + exc)
+        except Exception as err:
+            print(f"Error encountered in delete_vapp() method, Error : {err}")
             return False
 
     def logout(self):
